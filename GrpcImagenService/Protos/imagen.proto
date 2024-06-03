@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+/* Define el espacio de nombres de C# para los mensajes gRPC */
+option csharp_namespace = "GrpcImagenService";
+
+package imagen;
+
+/* Define el servicio de gRPC para manejar imágenes */
+service AutorImagenService {
+  // Guarda una imagen
+  rpc GuardarImagen (ImagenRequest) returns (Respuesta);
+}
+
+/* Define el mensaje de solicitud que contiene el contenido de la imagen */
+message ImagenRequest {
+  bytes contenido = 1;
+}
+
+/* Define el mensaje de respuesta que contiene la confirmación */
+message Respuesta {
+  string mensaje = 1;
+}
